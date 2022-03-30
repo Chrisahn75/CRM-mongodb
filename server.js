@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const user = require("./models/userModel");
+const login = require("./routers/login");
 const contact = require("./routers/contact");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -28,6 +28,7 @@ app.get("/", (_req, res) => {
 });
 
 app.use("/contact", contact);
+app.use("/login", login);
 
 app.use("*", (err, req, res, next) => {
     res.send("error");
