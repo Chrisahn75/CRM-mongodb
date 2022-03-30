@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const user = require("./models/userModel");
-const contact = require("./models/contactModel");
+const contact = require("./routers/contact");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
@@ -27,3 +27,12 @@ app.get("/", (_req, res) => {
     res.send("CRM");
 });
 
+app.use("/contact", contact);
+
+app.use("*", (err, req, res, next) => {
+    res.send("error");
+});
+
+app.listen(8000, () => {
+    console.log("Listening on port 8000");
+});
