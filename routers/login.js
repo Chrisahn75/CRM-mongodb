@@ -14,10 +14,13 @@ router.post("/", async (req, res) => {
     const { email, password } = req.body;
   
     const users = await user.findOne({ email });
-    
+
     if (!users) {
       return res.status(400).json({
         message: "Invalid email or password",
       });
     }
 });
+
+
+module.exports = router;
