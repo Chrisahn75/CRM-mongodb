@@ -19,7 +19,6 @@ function Connected() {
       message: "token not valid",
     });
   }
-  console.log(data);
 
   res.json({
     message: "request accepted",
